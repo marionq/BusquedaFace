@@ -1,24 +1,27 @@
 from flask import Flask, request
 from flask import jsonify
 
-
 # app Flask
 app = Flask(__name__)
 
-@app.route('/busqueda-facebook', methods=['POST'])
-def busquedaFacebook():
-    #urls = ["https://www.facebook.com/Recompensa-MX-104904185515071", "https://www.facebook.com/losdel1al10","https://www.facebook.com/Recompensas-MX-114057707972213"]
-    try:
-        requestBusqueda = request.json
-        #findUrl = GetUrlsBusqueda()
-        #urls = findUrl.get_url_facebook(requestBusqueda['busqueda'])
-        #getInf = GetInfBusqueda()
-        #inf = getInf.get_inf_facebook(urls)
 
-        #return jsonify(inf)
-        return jsonify(requestBusqueda)
+@app.route('/busqueda-facebook', methods=['GET'])
+def busquedaFacebook():
+    # urls = ["https://www.facebook.com/Recompensa-MX-104904185515071", "https://www.facebook.com/losdel1al10","https://www.facebook.com/Recompensas-MX-114057707972213"]
+    try:
+        # requestBusqueda = request.json
+        # findUrl = GetUrlsBusqueda()
+        # urls = findUrl.get_url_facebook(requestBusqueda['busqueda'])
+        # getInf = GetInfBusqueda()
+        # inf = getInf.get_inf_facebook(urls)
+
+        # return jsonify(inf)
+        return jsonify({
+            "busqueda": "santander"
+        })
     except Exception as ex:
         return ex
+
 
 def pagina_no_encontrada(error):
     return "<h1>La página a la que intentas acceder no existe....</h1>", 404
@@ -26,4 +29,4 @@ def pagina_no_encontrada(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, pagina_no_encontrada)
-    app.run(port = 8001)
+    app.run(port=8001)
