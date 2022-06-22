@@ -12,7 +12,7 @@ COPY config .
 
 ENV PYTHONUNBUFFERED 1
 
-EXPOSE 8001
+EXPOSE 5000
 STOPSIGNAL SIGINT
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
