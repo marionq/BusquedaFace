@@ -15,4 +15,5 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 8001
 STOPSIGNAL SIGINT
 
-CMD ["gunicorn", "--config", "gunicorn_config.py", "main:app"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
